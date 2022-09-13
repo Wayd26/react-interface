@@ -4,8 +4,11 @@ import Search from "./components/Search"
 import AddAppointment from "./components/AddAppointment"
 import AppointmentInfo from "./components/AppointmentInfo"
 
+
 function App() {
 
+
+  const DATA_URL = './data/data.json'
   let [appointmentList, setAppointmentList] = useState([]);
   let [query, setQuery] = useState("");
   let [sortBy, setSortBy] = useState("petName");
@@ -28,7 +31,7 @@ function App() {
   })
 
   const fetchData = useCallback(() => {
-    fetch('./data.json')
+    fetch(DATA_URL)
       .then(response => response.json())
       .then(data => {
         setAppointmentList(data)
